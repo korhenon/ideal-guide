@@ -7,8 +7,11 @@ wss.on('connection', (ws) => {
 
     ws.on('message', (message) => {
         console.log(`Получено сообщение: ${message}`);
-        ws.send('Сообщение получено!');
     });
+
+    setInterval(() => {
+        ws.send("Hello my user")
+    }, 10000)
 
     ws.on('close', () => {
         console.log('Клиент отключился');
